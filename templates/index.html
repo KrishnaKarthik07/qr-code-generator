@@ -41,30 +41,12 @@
         </form>
 
 
-        {% if qr_image %}
-
-        <div class="result">
-
-            <h2>Your QR Code</h2>
-
-            <img
-                src="{{ qr_image }}"
-                alt="Generated QR Code"
-            >
-
-            <br><br>
-
-            <a
-                href="{{ qr_image }}"
-                download="qrcode.png"
-                class="download"
-            >
-                Download QR Code
-            </a>
-
-        </div>
-
-        {% endif %}
+{% if qr_image %}
+<div class="qr-result">
+    <img src="data:image/png;base64,{{ qr_image }}" alt="QR Code">
+    <a href="data:image/png;base64,{{ qr_image }}" download="qrcode.png" class="download-btn">Download QR Code</a>
+</div>
+{% endif %}
 
     </div>
 
