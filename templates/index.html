@@ -1,55 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator</title>
-
-    <!-- CSS LINK -->
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
-
     <div class="container">
-
         <h1>QR Code Generator</h1>
-
-        <p>Create a QR code using Python</p>
-
+        <p class="subtitle">Create a QR code using Python</p>
 
         <form method="POST">
-
-            <input
-                type="text"
-                name="data"
-                placeholder="Enter URL or text"
-                required
-            >
-
-            <button type="submit">
-                Generate QR
-            </button>
-
+            <input type="text" name="data" placeholder="Enter URL or text" required>
+            <button type="submit">Generate QR</button>
         </form>
 
-
-{% if qr_image %}
-<div class="qr-result">
-    <img src="data:image/png;base64,{{ qr_image }}" alt="QR Code">
-    <a href="data:image/png;base64,{{ qr_image }}" download="qrcode.png" class="download-btn">Download QR Code</a>
-</div>
-{% endif %}
-
+        {% if qr_image %}
+        <div class="qr-result">
+            <img src="data:image/png;base64,{{ qr_image }}" alt="QR Code">
+            <br>
+            <a href="data:image/png;base64,{{ qr_image }}" download="qr_code.png" class="download-btn">⬇ Download QR Code</a>
+        </div>
+        {% endif %}
     </div>
-
 </body>
-
 </html>
