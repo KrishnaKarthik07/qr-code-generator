@@ -84,3 +84,7 @@ button:hover {
     background: #16a34a;
     transform: scale(1.05);
 }
+span {
+    color:red;
+    font-weight:bold;
+}
